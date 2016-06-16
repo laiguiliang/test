@@ -11,16 +11,17 @@ import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
 
+/**
+ * 
+ * @author laigl 2016Äê6ÔÂ16ÈÕ
+ *
+ */
 public class RedisDao {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private JedisPool jedisPool;
+	private final JedisPool jedisPool;
 	
-	public RedisDao() {
-		
-	}
-
 	public RedisDao(String ip, int port) {
 		jedisPool = new JedisPool(ip, port);
 	}
@@ -97,9 +98,4 @@ public class RedisDao {
 		return result;
 	}
 	
-	public static void main(String[] args) {
-		RedisDao dao = new RedisDao();
-		System.out.println(dao);
-	}
-
 }
