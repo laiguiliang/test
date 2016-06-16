@@ -15,7 +15,11 @@ public class RedisDao {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private final JedisPool jedisPool;
+	private JedisPool jedisPool;
+	
+	public RedisDao() {
+		
+	}
 
 	public RedisDao(String ip, int port) {
 		jedisPool = new JedisPool(ip, port);
@@ -91,6 +95,11 @@ public class RedisDao {
 		}
 		
 		return result;
+	}
+	
+	public static void main(String[] args) {
+		RedisDao dao = new RedisDao();
+		System.out.println(dao);
 	}
 
 }
