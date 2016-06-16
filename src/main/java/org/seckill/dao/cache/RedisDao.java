@@ -11,11 +11,6 @@ import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
 
-/**
- * 
- * @author laigl 2016Äê6ÔÂ16ÈÕ
- *
- */
 public class RedisDao {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -98,4 +93,7 @@ public class RedisDao {
 		return result;
 	}
 	
+	public static void main(String[] args) {
+		
+	}
 }
