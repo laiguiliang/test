@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.common.mapper.sys.IUserAccountMapper">
+
+	<resultMap id="userAccountResult" type="org.seckill.entity.UserAccount">
+		<id property="sellID" column="sellID" javaType="java.lang.Long"
+			jdbcType="BIGINT" />
+		<result property="mobile" column="mobile" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result property="Password" column="password" javaType="java.lang.String"
+			jdbcType="VARCHAR" />
+		<result property="status" column="status" javaType="java.lang.Integer"
+			jdbcType="INTEGER" />
+		<result property="createTime" column="CreateTime" javaType="java.sql.Timestamp"
+			jdbcType="TIMESTAMP" />
+		<result property="updateTime" column="UpdateTime" javaType="java.sql.Timestamp"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<sql id="Base_Column_List"><![CDATA[
+			sellID,
+			Mobile,
+			Password,
+			status,
+			createTime,
+			updateTime
+	]]></sql>
+
+	<!-- 查询全部用户数目 -->
+	<select id="findUserById" resultMap="userAccountResult" parameterType="java.lang.Long">
+		SELECT
+			<include refid="Base_Column_List" />
+		FROM TB_MO_User_Account a
+		WHERE a.sellID = #{sellID}
+	</select>
+
+	<select id="findUsers" resultMap="userAccountResult">
+		SELECT
+		*
+		FROM TB_MO_User_Account a
+	</select>
+
+	<!-- 插入用户 -->
+	<insert id="insert">
+		INSERT INTO TB_MO_User_Account(
+		sellID,
+		mobile,
+		password,
+		status,
+		createTime,
+		updateTime
+		) VALUES (
+		#{id},
+		#{mobile},
+		#{password},
+		#{status},
+		#{createTime},
+		)
+	</insert>
+
+	<!-- 更新用户 -->
+	<update id="updateById">
+		UPDATE TB_MO_User_Account SET
+		mobile = #{mobile},
+		password = #{password},
+		status = #{status},
+		createTime = #{createTime},
+		updateTime = #{updateTime}
+		WHERE sellID = #{sellID}
+	</update>
+
+	<!-- 删除用户和角色关联表数据 -->
+	<delete id="deleteById">
+		DELETE FROM TB_MO_User_Account WHERE sellID =
+		#{sellID}
+	</delete>
+</mapper>
