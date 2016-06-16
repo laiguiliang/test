@@ -18,8 +18,8 @@ public class TaskService {
 
     private int timeNum = 1;
     
-    @Scheduled(cron = "0 * 17 * * ?")
-//    @Scheduled(cron="0/5 * *  * * ? ")   //每5秒执行一次 
+//    @Scheduled(cron = "0 * 17 * * ?")
+    @Scheduled(cron="0/5 * *  * * ? ")   //每5秒执行一次 
     // 每天凌晨1点执行
     public void doTask() {
         synchronized (this) {

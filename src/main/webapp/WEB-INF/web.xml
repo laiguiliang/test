@@ -5,16 +5,6 @@
 
 	<!-- 修改servlet版本为3.1 -->
 
-
-	<!-- 默认的spring配置文件是在WEB-INF下的applicationContext.xml -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<listener>
-		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
-	</listener>
-	
-
 	<!-- 配置DispatcherServlet -->
 	<servlet>
 		<servlet-name>seckill</servlet-name>
